@@ -34,7 +34,7 @@ class HomeTest {
     @Test
     fun testHomeNavigationToTimeline() {
         val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
-        navController.setGraph(R.id.main_nav_graph)
+        navController.setGraph(R.navigation.main_nav_graph)
 
         val homeScenario = launchFragmentInContainer<HomeFragment>()
         homeScenario.onFragment {

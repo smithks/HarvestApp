@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.keegansmith.ironharvestapp.R
 
-class TimelineFragment(): Fragment() {
+class TimelineFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

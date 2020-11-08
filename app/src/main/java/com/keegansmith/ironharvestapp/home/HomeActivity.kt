@@ -22,7 +22,7 @@ class HomeActivity: AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
         DaggerAppComponent.builder()
-//            .coreModule(CoreModule(RepoImplementation()))
+            .coreModule(CoreModule(RepoImplementation()))
             .build()
             .inject(this)
         Toast.makeText(this, classUsingInterface.getString(), Toast.LENGTH_SHORT).show()

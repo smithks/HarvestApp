@@ -2,15 +2,16 @@ package com.keegansmith.core
 
 import dagger.Module
 import dagger.Provides
+import javax.inject.Provider
 
 @Module
 class CoreModule(
-    private val repoInterface: RepoInterface
+    private val implDependencyProvider: Provider<RepoInterface>
 ) {
 
     @Provides
     fun provideRepoImp(): RepoInterface {
-        return repoInterface
+        return implDependencyProvider.get()
     }
 
 //    @Provides

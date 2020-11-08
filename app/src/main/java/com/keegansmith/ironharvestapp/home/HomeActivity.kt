@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.keegansmith.api.ClassUsingInterface
 import com.keegansmith.core.CoreModule
 import com.keegansmith.ironharvestapp.DaggerAppComponent
+import com.keegansmith.ironharvestapp.DaggerAppDependencyComponent
 import com.keegansmith.ironharvestapp.RepoImplementation
 import com.keegansmith.ironharvestapp.databinding.ActivityHomeBinding
 import javax.inject.Inject
@@ -21,8 +22,11 @@ class HomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
+
+        val dependencyProvider = DaggerAppDependencyComponent.create()
+
         DaggerAppComponent.builder()
-            .coreModule(CoreModule(RepoImplementation()))
+            .coreModule(CoreModule(dependencyProvider.getRepoImplProvider()))
             .build()
             .inject(this)
         Toast.makeText(this, classUsingInterface.getString(), Toast.LENGTH_SHORT).show()
